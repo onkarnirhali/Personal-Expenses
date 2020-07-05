@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
             Container(
               color: Colors.yellowAccent,
               width: 150,
-              height: 200,
+              height: 100,
               child: Card(
                 shadowColor: Colors.black,
                 color: Colors.amber,
@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.purple, width: 2)),
                         child: Text(
-                          tx.amount.toString(),
+                          '₹${tx.amount}', //dollar is a reserved key for the purpose of string interpolation
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.purple),
