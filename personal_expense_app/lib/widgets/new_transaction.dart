@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
+  final Function
+      addTx; // we created this funtion so that we could pass this on press of the add transcation button
+  NewTransaction(this.addTx);
   final titleController = TextEditingController();
   final amountController = TextEditingController();
   @override
@@ -32,6 +35,8 @@ class NewTransaction extends StatelessWidget {
           ),
           FlatButton(
               onPressed: () {
+                addTx(
+                    titleController.text, double.parse(amountController.text));
                 print(titleController.text);
                 print(amountController.text);
               },

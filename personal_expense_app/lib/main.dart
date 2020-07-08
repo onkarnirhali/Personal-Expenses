@@ -33,7 +33,7 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             Container(
               width: 150,
-              height: 200,
+              height: 100,
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
