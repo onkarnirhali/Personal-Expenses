@@ -29,11 +29,16 @@ class _UserTransactionsState extends State<UserTransactions> {
   }
 
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        NewTransaction(_addNewTransaction),
-        TransactionList(_userTransaction)
-      ],
+    return Container(
+      height: 530,
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            NewTransaction(_addNewTransaction),
+            TransactionList(_userTransaction)
+          ],
+        ),
+      ),
     );
   }
 }
