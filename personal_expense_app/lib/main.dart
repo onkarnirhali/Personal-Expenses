@@ -1,15 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expense_app/widgets/new_transaction.dart';
+import 'package:personal_expense_app/widgets/transcation_list.dart';
 import './models/transcation.dart';
-import './widgets/user_transactions.dart';
 
 void main() => runApp(MyApp());
 
-final titleController = TextEditingController();
-final amountController = TextEditingController();
 String titleInput;
 String amountInput;
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
+  final List<Transaction> _userTransaction = [
+    Transaction(
+        id: 't1', title: 'New Clothes', amount: 599, date: DateTime.now()),
+    Transaction(id: 't2', title: 'Pendrive', amount: 1899, date: DateTime.now())
+  ];
+
+  void _addNewTransaction(String txTitle, double txAmount) {
+    final newTx = Transaction(
+        title: txTitle,
+        amount: txAmount,
+        date: DateTime.now(),
+        id: DateTime.now().toString());
+
+    setState(() {
+      _userTransaction.add(newTx);
+    });
+  }
+
+  void startAddNewTransction(BuildContext ctxt) {
+    showModalBottomSheet(
+        context: ctxt,
+        builder: (bCtxt) {
+          return NewTransaction(_addNewTransaction);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,10 +57,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Personal Expense'),
-        ),
-        body: Column(
+      appBar: AppBar(
+        title: Text('Personal Expense'),
+        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -47,8 +82,12 @@ class MyHomePage extends StatelessWidget {
                     20, // TL;DR card takes childs width unless there is a width defined by the parent then it takes the parents width
               ),
             ),
-            UserTransactions(),
+            TransactionList(transactions),
           ],
-        ));
+        ),
+      ),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+    );
   }
 }
