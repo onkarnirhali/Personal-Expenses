@@ -8,12 +8,12 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 520,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return Card(
             shadowColor: Colors.blueGrey,
-            elevation: 20,
+            elevation: 5,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Row(
