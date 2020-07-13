@@ -14,8 +14,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // final titleController = TextEditingController();
-  // final amountController = TextEditingController();
+
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
 
   final List<Transaction> _userTransaction = [
     Transaction(
@@ -75,25 +78,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
 
-  // void _addNewTransaction(String txTitle, double txAmount) {
-  //   final newTx = Transaction(
-  //       title: txTitle,
-  //       amount: txAmount,
-  //       date: DateTime.now(),
-  //       id: DateTime.now().toString());
 
-  //   setState(() {
-  //     _transactions.add(newTx);
-  //   });
-  // }
-
-  // void _startAddNewTransction(BuildContext ctxt) {
-  //   showModalBottomSheet(
-  //       context: ctxt,
-  //       builder: (bCtxt) {
-  //         return NewTransaction(_addNewTransaction);
-  //       });
-  // }
 
   final List<Transaction> _userTransaction = [
     Transaction(
@@ -129,15 +114,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+ Day-10-Personal-Expense
         title: Text(
           'Personal Expense',
           style: TextStyle(fontFamily: 'OpenSans'),
         ),
+
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),
               onPressed: () => _startAddNewTransction(context))
         ],
+
+        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
+
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -160,6 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     20, // TL;DR card takes childs width unless there is a width defined by the parent then it takes the parents width
               ),
             ),
+ 
             TransactionList(_userTransaction),
           ],
         ),
@@ -167,6 +158,14 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () => _startAddNewTransction(context)),
+
+            TransactionList(transactions),
+          ],
+        ),
+      ),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+
     );
   }
 }

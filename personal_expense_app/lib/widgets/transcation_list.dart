@@ -24,7 +24,7 @@ class TransactionList extends StatelessWidget {
                       border: Border.all(
                           color: Theme.of(context).primaryColorDark, width: 2)),
                   child: Text(
-                    '₹${transactions[index].amount}', //dollar is a reserved key for the purpose of string interpolation
+                    '₹${transactions[index].amount.toStringAsFixed(1)}', //dollar is a reserved key for the purpose of string interpolation
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor),
