@@ -11,8 +11,22 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
-
   final amountController = TextEditingController();
+
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount.isNegative) {
+      return; //this will return nothing so that a blank or a flase transaction wont be added.
+    }
+
+    widget.addTx(
+      enteredTitle,
+      enteredAmount,
+    );
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +52,7 @@ class _NewTransactionState extends State<NewTransaction> {
               onPressed: () {
                 widget.addTx(
                     titleController.text, double.parse(amountController.text));
+                Navigator.of(context).pop();
               },
               textColor: Colors.deepPurpleAccent,
               child: Text('Add Transaction'))
