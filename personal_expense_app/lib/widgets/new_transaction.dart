@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
   final Function
       addTx; // we created this funtion so that we could pass this on press of the add transcation button
   NewTransaction(this.addTx);
+
+  @override
+  _NewTransactionState createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
 
   void onSubmit() {
     final enteredTitle = titleController.text;
@@ -16,8 +22,11 @@ class NewTransaction extends StatelessWidget {
     addTx(enteredTitle, enteredAmount);
   }
 
+
   final titleController = TextEditingController();
+
   final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,7 +49,14 @@ class NewTransaction extends StatelessWidget {
             onSubmitted: (_) => onSubmit(),
           ),
           FlatButton(
+
+              onPressed: () {
+                widget.addTx(
+                    titleController.text, double.parse(amountController.text));
+              },
+
               onPressed: onSubmit,
+
               textColor: Colors.deepPurpleAccent,
               child: Text('Add Transaction'))
         ],
