@@ -10,6 +10,19 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
+
+  void onSubmit() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredTitle.isEmpty) {
+      return;
+    }
+
+    addTx(enteredTitle, enteredAmount);
+  }
+
+
   final titleController = TextEditingController();
 
   final amountController = TextEditingController();
@@ -33,12 +46,17 @@ class _NewTransactionState extends State<NewTransaction> {
                 labelText: 'Amount', hintText: 'Enter the amount'),
             controller: amountController,
             keyboardType: TextInputType.number,
+            onSubmitted: (_) => onSubmit(),
           ),
           FlatButton(
+
               onPressed: () {
                 widget.addTx(
                     titleController.text, double.parse(amountController.text));
               },
+
+              onPressed: onSubmit,
+
               textColor: Colors.deepPurpleAccent,
               child: Text('Add Transaction'))
         ],
