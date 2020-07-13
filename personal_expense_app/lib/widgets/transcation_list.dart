@@ -21,13 +21,13 @@ class TransactionList extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                      border:
-                          Border.all(color: Colors.deepPurpleAccent, width: 2)),
+                      border: Border.all(
+                          color: Theme.of(context).primaryColorDark, width: 2)),
                   child: Text(
                     '₹${transactions[index].amount.toStringAsFixed(1)}', //dollar is a reserved key for the purpose of string interpolation
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.deepPurpleAccent),
+                        color: Theme.of(context).primaryColor),
                   ),
                   padding: EdgeInsets.all(10),
                 ),
@@ -37,8 +37,7 @@ class TransactionList extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       '${transactions[index].title}',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                      style: Theme.of(context).textTheme.headline6,
                       textAlign: TextAlign.start,
                     ),
                     Text(
