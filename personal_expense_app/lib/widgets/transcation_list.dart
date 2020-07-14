@@ -20,10 +20,22 @@ class TransactionList extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
+
                   height: 200,
                   child: Image.asset(
                     'assets/images/waiting.png',
                     fit: BoxFit.cover,
+
+                  margin: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Theme.of(context).primaryColorDark, width: 2)),
+                  child: Text(
+                    '₹${transactions[index].amount.toStringAsFixed(1)}', //dollar is a reserved key for the purpose of string interpolation
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor),
+
                   ),
                 )
               ],
