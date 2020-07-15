@@ -16,29 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // final titleController = TextEditingController();
-  // final amountController = TextEditingController();
-
-  // void _addNewTransaction(String txTitle, double txAmount) {
-  //   final newTx = Transaction(
-  //       title: txTitle,
-  //       amount: txAmount,
-  //       date: DateTime.now(),
-  //       id: DateTime.now().toString());
-
-  //   setState(() {
-  //     _userTransaction.add(newTx);
-  //   });
-  // }
-
-  // void startAddNewTransction(BuildContext ctxt) {
-  //   showModalBottomSheet(
-  //       context: ctxt,
-  //       builder: (bCtxt) {
-  //         return NewTransaction(_addNewTransaction);
-  //       });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,26 +47,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
-
-  // void _addNewTransaction(String txTitle, double txAmount) {
-  //   final newTx = Transaction(
-  //       title: txTitle,
-  //       amount: txAmount,
-  //       date: DateTime.now(),
-  //       id: DateTime.now().toString());
-
-  //   setState(() {
-  //     _transactions.add(newTx);
-  //   });
-  // }
-
-  // void _startAddNewTransction(BuildContext ctxt) {
-  //   showModalBottomSheet(
-  //       context: ctxt,
-  //       builder: (bCtxt) {
-  //         return NewTransaction(_addNewTransaction);
-  //       });
-  // }
 
   final List<Transaction> _userTransaction = [
     // Transaction(
