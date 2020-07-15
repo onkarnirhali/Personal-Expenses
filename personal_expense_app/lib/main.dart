@@ -16,6 +16,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,11 +52,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
 
-  final List<Transaction> _userTransaction = [
-    // Transaction(
-    //     id: 't1', title: 'New Clothes', amount: 599, date: DateTime.now()),
-    // Transaction(id: 't2', title: 'Pendrive', amount: 1899, date: DateTime.now())
-  ];
+
 
   List<Transaction> get _recentTransactions {
     return _userTransaction.where((tx) {
@@ -88,15 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+ Day-10-Personal-Expense
         title: Text(
           'Personal Expense',
           style: TextStyle(fontFamily: 'OpenSans'),
         ),
+
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),
               onPressed: () => _startAddNewTransction(context))
         ],
+
+        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
+
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -111,6 +116,14 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () => _startAddNewTransction(context)),
+
+            TransactionList(transactions),
+          ],
+        ),
+      ),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
+
     );
   }
 }
