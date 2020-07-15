@@ -17,30 +17,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-
   final titleController = TextEditingController();
   final amountController = TextEditingController();
-
-
-  // void _addNewTransaction(String txTitle, double txAmount) {
-  //   final newTx = Transaction(
-  //       title: txTitle,
-  //       amount: txAmount,
-  //       date: DateTime.now(),
-  //       id: DateTime.now().toString());
-
-  //   setState(() {
-  //     _userTransaction.add(newTx);
-  //   });
-  // }
-
-  // void startAddNewTransction(BuildContext ctxt) {
-  //   showModalBottomSheet(
-  //       context: ctxt,
-  //       builder: (bCtxt) {
-  //         return NewTransaction(_addNewTransaction);
-  //       });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
 
 
-
-  final List<Transaction> _userTransaction = [
-    // Transaction(
-    //     id: 't1', title: 'New Clothes', amount: 599, date: DateTime.now()),
-    // Transaction(id: 't2', title: 'Pendrive', amount: 1899, date: DateTime.now())
-  ];
 
   List<Transaction> get _recentTransactions {
     return _userTransaction.where((tx) {

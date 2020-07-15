@@ -19,7 +19,10 @@ class Chart extends StatelessWidget {
 
       print(DateFormat.E().format(weekDay));
       print(totalSum);
-      return {'Day': DateFormat.E().format(weekDay), 'amount': totalSum};
+      return {
+        'Day': DateFormat.E().format(weekDay).substring(0, 2),
+        'amount': totalSum
+      };
     });
   }
 
@@ -30,8 +33,11 @@ class Chart extends StatelessWidget {
       elevation: 10,
       margin: EdgeInsets.all(20),
       child: Row(
-        children: <Widget>[],
-      ),
+          children: groupedTransactions.map((e) {
+        // this logic will fetch the data from the groupedtransactions and show it on the chart widget.
+        return Text('${e['Day']}: ${e['amount']}'
+            .toString()); // we have concatenated the data
+      }).toList()), // since it is a data of 7 days we needed to make it in a list
     );
   }
 }
