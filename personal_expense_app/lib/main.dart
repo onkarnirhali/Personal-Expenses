@@ -16,10 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,20 +84,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
- Day-10-Personal-Expense
         title: Text(
           'Personal Expense',
           style: TextStyle(fontFamily: 'OpenSans'),
         ),
-
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),
               onPressed: () => _startAddNewTransction(context))
         ],
-
-        actions: <Widget>[IconButton(icon: Icon(Icons.add), onPressed: () {})],
-
       ),
       body: SingleChildScrollView(
         child: Column(
