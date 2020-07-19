@@ -113,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'Personal Expenses',
         ),
         actions: <Widget>[
+          //a list of widgets
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () => _startAddNewTransaction(context),
